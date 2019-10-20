@@ -1,18 +1,17 @@
-import sns = require('@aws-cdk/aws-sns');
-import subs = require('@aws-cdk/aws-sns-subscriptions');
-import sqs = require('@aws-cdk/aws-sqs');
 import cdk = require('@aws-cdk/core');
+import lambda = require('@aws-cdk/aws-lambda');
+import lra = require('@aws-cdk/aws-apigateway');
 
-export class AwsStackStack extends cdk.Stack {
+export class AwsMultiPlayerStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    const queue = new sqs.Queue(this, 'AwsStackQueue', {
-      visibilityTimeout: cdk.Duration.seconds(300)
+    const lambdaHandler = new lambda.Function(this, 'LambdaHandler', {
+      runtime: lambda.Runtime.NODEJS_8_10,
+      code: lambda.Code.asset("lambda-bin"),
+      handler: 'handler.handler'
     });
 
-    const topic = new sns.Topic(this, 'AwsStackTopic');
-
-    topic.addSubscription(new subs.SqsSubscription(queue));
+    new lra.LambdaRestApi(this, 'AwsLambdaRestApi', { handler: lambdaHandler });
   }
 }
