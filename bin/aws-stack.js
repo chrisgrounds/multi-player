@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const cdk = require("@aws-cdk/core");
+const aws_stack_stack_1 = require("../lib/aws-stack-stack");
+const app = new cdk.App();
+new aws_stack_stack_1.AwsMultiPlayerStack(app, 'AwsMultiPlayerStack');
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXdzLXN0YWNrLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiYXdzLXN0YWNrLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUNBLHFDQUFzQztBQUN0Qyw0REFBNkQ7QUFFN0QsTUFBTSxHQUFHLEdBQUcsSUFBSSxHQUFHLENBQUMsR0FBRyxFQUFFLENBQUM7QUFDMUIsSUFBSSxxQ0FBbUIsQ0FBQyxHQUFHLEVBQUUscUJBQXFCLENBQUMsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIiMhL3Vzci9iaW4vZW52IG5vZGVcbmltcG9ydCBjZGsgPSByZXF1aXJlKCdAYXdzLWNkay9jb3JlJyk7XG5pbXBvcnQgeyBBd3NNdWx0aVBsYXllclN0YWNrIH0gZnJvbSAnLi4vbGliL2F3cy1zdGFjay1zdGFjayc7XG5cbmNvbnN0IGFwcCA9IG5ldyBjZGsuQXBwKCk7XG5uZXcgQXdzTXVsdGlQbGF5ZXJTdGFjayhhcHAsICdBd3NNdWx0aVBsYXllclN0YWNrJyk7Il19
